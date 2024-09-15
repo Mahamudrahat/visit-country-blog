@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import './Country.css';
 
-const Country=({country})=>{
+const Country=({country,handleVisitCountries})=>{
 const {name,flags,population,area}=country
 const [visited,setVisited]=useState(false);
 const handleVisited=()=>{
@@ -14,7 +14,8 @@ const handleVisited=()=>{
        <img style={{height:160,width:320}}src={flags.png} alt=""/>
        <p>Country Population:{population}</p>
        <p>Country Area:{area}</p>
-
+       <button onClick={()=>handleVisitCountries(country)} className="button-visit">Mark As Visit</button>
+       &nbsp;&nbsp;
        <button onClick={handleVisited} className="button-visit">{visited? "Visited":"Going"}</button>
        <br />
        {visited && "I have visited this country"}
